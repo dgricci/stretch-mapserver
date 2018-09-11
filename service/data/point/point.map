@@ -1,0 +1,249 @@
+MAP
+  # Cf. http://mapserver.org/mapfile/map.html#map
+  NAME "map"
+  STATUS ON
+  EXTENT -4.24 41.34 10.81 50.79
+  UNITS DD
+  SIZE 800 400
+  MAXSIZE 2048
+  IMAGECOLOR 255 255 255
+  RESOLUTION 96
+
+  # Cf. http://mapserver.org/mapfile/web.html#web
+  WEB
+    BROWSEFORMAT "text/html"
+    #EMPTY url
+    #ERROR url
+    #HEADER "filename"
+    #FOOTER "filename"
+
+    IMAGEURL "/tmp/"
+    IMAGEPATH "./"
+    TEMPPATH "/tmp/"
+
+    LEGENDFORMAT "text/html"
+    MINSCALEDENOM 5000
+    #MINTEMPLATE filenameORurl
+    MAXSCALEDENOM 1000000000
+    #MAXTEMPLATE filenameORurl
+    QUERYFORMAT "text/html"
+    #TEMPLATE filenameORurl
+
+    METADATA
+      # Cf. http://mapserver.org/ogc/mapcontext.html#map-context
+      "ows_schemas_location" "http://schemas.opengis.net"
+      "wms_abstract" "this is a test !"
+
+      #"wms_address"
+      #"wms_addresstype"
+      #"wms_city"
+      #"wms_postcode"
+      #"wms_country"
+      #"wms_stateorprovince"
+      #"wms_contactelectronicmailaddress"
+      #"wms_contactfacsimiletelephone"
+
+      #"wms_contactorganization"
+      #"wms_contactperson"
+      #"wms_contactposition"
+      #"wms_contactvoicetelephone"
+
+      "wms_context_fid" "0"
+      "wms_context_version" "2.0.2"
+
+      #"wms_descriptionurl_format"
+      #"wms_descriptionurl_href"
+
+      "wms_title" "WMS sample"
+      #"wms_descriptionurl_format" ""
+      #"wms_descriptionurl_href " ""
+      #"wms_keywordlist" ""
+
+      # Cf. http://mapserver.org/ogc/index.html
+
+      # Cf. http://mapserver.org/ogc/wms_server.html
+      "wms_srs" "CRS:84 EPSG:7084 EPSG:4326 EPSG:4171 EPSG:2154"
+      "wms_onlineresource" "http://localhost:6080/mapws/point/?"
+      "wms_enable_request" "GetCapabilities GetMap !GetFeatureInfo !GetLegendGraphic"
+      "ows_sld_enabled" "false"
+      "wms_accessconstraints" "none"
+      #"wms_attribution_logourl_format"
+      #"wms_attribution_logourl_height"
+      #"wms_attribution_logourl_width"
+      #"wms_attribution_logourl_href"
+      #"wms_attribution_onlineresource"
+      #"wms_attribution_title"
+      "wms_bbox_extended" "true"
+      "wms_encoding" "UTF-8"
+      #"wms_feature_info_mime_type"
+      "wms_fees" "none"
+      #"wms_getcapabilities_version"
+      #"wms_getlegendgraphic_formatlist"
+      "wms_getmap_formatlist" "image/png,image/jpeg"
+      "wms_languages" "en"
+      "wms_layerlimit" "1"
+      #"wms_remote_sld_max_bytes"
+      #"wms_resx"
+      #"wms_resy"
+      #"wms_rootlayer_abstract"
+      #"wms_logourl_width"
+      #"wms_logourl_height"
+      #"wms_logourl_format"
+      #"wms_logourl_href"
+
+      # Cf. http://mapserver.org/ogc/wfs_server.html#wfs-server
+      # Cf. http://mapserver.org/ogc/wcs_server.html#wcs-server
+      # Cf. http://mapserver.org/ogc/sos_server.html#sos-server
+    END # METADATA
+  END # WEB
+
+  PROJECTION
+      "proj=longlat"
+      "datum=WGS84"
+      "no_defs"
+  END # PROJECTION
+
+  # Cf. http://mapserver.org/mapfile/outputformat.html#outputformat
+  OUTPUTFORMAT
+    NAME "jpeg"
+    MIMETYPE "image/jpeg"
+    DRIVER "GD/JPEG"
+    EXTENSION "jpg"
+    IMAGEMODE RGB
+    TRANSPARENT FALSE
+    FORMATOPTION "QUALITY=100"
+  END # OUTPUTFORMAT
+
+  OUTPUTFORMAT
+    NAME "png"
+    MIMETYPE "image/png"
+    DRIVER "GD/PNG"
+    EXTENSION "png"
+    IMAGEMODE RGBA
+    TRANSPARENT TRUE
+    FORMATOPTION "GAMMA=0.75"
+    FORMATOPTION "COMPRESSION=6"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+  END # OUTPUTFORMAT
+
+  OUTPUTFORMAT
+    NAME "kml"
+    MIMETYPE "application/vnd.google-earth.kml.xml"
+    DRIVER KML
+    EXTENSION "kml"
+    IMAGEMODE FEATURE
+  END
+
+  OUTPUTFORMAT
+    NAME "kmz"
+    MIMETYPE "application/vnd.google-earth.kmz"
+    DRIVER KMZ
+    EXTENSION "kmz"
+    IMAGEMODE FEATURE
+  END
+
+  SYMBOL
+    NAME "disk"
+    TYPE ellipse
+    FILLED true
+    POINTS
+      1 1
+    END
+  END # SYMBOL
+
+  SYMBOL
+    NAME "circle"
+    TYPE ellipse
+    FILLED false
+    POINTS
+      1 1
+    END
+  END # SYMBOL
+
+  LAYER
+    NAME "STOPS"
+    TYPE POINT
+    CONNECTIONTYPE OGR
+    CONNECTION "ENSG.geojson"
+    DATA "ENSG" # Layer name returned by ogrinfo !
+    PROJECTION
+      "proj=longlat"
+      "datum=WGS84"
+      "no_defs"
+    END
+    METADATA
+      # Cf. http://mapserver.org/ogc/mapcontext.html#map-context
+      "wms_name" "STOPS"
+      "wms_title" "Stops around ENSG"
+      "wms_srs" "CRS:84 EPSG:7084 EPSG:4326 EPSG:4171 EPSG:2154"
+      #"wms_dataurl_href"
+      #"wms_dataurl_format"
+      #"wms_dimension"
+
+      #"wms_dimensionlist"
+      # % is the dimension's name :
+      #"wms_dimension_%s_default"
+      #"wms_dimension_%s_multiplevalues"
+      #"wms_dimension_%s_nearestvalue"
+      #"wms_dimension_%s_units"
+      #"wms_dimension_%s_unitsymbol"
+      #"wms_dimension_%s_uservalue"
+
+      #"wms_format"
+      #"wms_formatlist"
+      #"wms_metadataurl_format"
+      #"wms_metadataurl_href"
+      "wms_onlineresource" "http://localhost:6080/mapws/point/?"
+      "wms_server_version" "1.3.0"
+      #"wms_server_title"
+
+      #"wms_style"
+      #"wms_stylelist"
+      # % is the style's name :
+      #"wms_style_%s_legendurl_width"
+      #"wms_style_%s_legendurl_height"
+      #"wms_style_%s_legendurl_format"
+      #"wms_style_%s_legendurl_href"
+      #"wms_style_%s_sld"
+      #"wms_style_%s_sld_body"
+      #"wms_style_%s_title"
+
+      # Cf. http://mapserver.org/ogc/wms_server.html
+      "wms_abstract" "Stops around ENSG from RATP open data"
+      "gml_include_items" "all"
+      #"gml_%_alias" "alias4att"
+      #"gml_exclude_items" ""
+      #"gml_xml_items" "att,att,att"
+      "gml_geometries" "none"
+      #"gml_%_type" "point|multipoint|line|multiline|polygon|multipolygon"
+      #"gml_groups" "name,name,name"
+      #"gml_%_group" "att,att,att"
+      #"wms_dataurl_format"
+      #"wms_dataurl_href"
+      "wms_extent" "2.581360 48.842245 2.583929 48.843535"
+      #"wms_getfeatureinfo_formatlist"
+      #"wms_getlegendgraphic_formatlist"
+      #"wms_getmap_formatlist" "image/png,image/jpeg"
+      #"wms_identifier_authority"
+      #"wms_identifier_value"
+      #"wms_keywordlist"
+      #"wms_keywordlist_vocabulary"
+      #"wms_keywordlist_%_items"
+      #"wms_opaque" "1"
+      #"wms_timedefault"
+      #"wms_timeextent"
+      #"wms_timeitem"
+    END # METADATA
+    STATUS ON
+    TEMPLATE ""
+    CLASS
+      STYLE
+        SYMBOL "disk"
+        COLOR 255 0 0
+        SIZE 7
+      END # STYLE
+    END # CLASS
+  END # LAYER
+
+END # MAP
+

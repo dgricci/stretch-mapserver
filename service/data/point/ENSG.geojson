@@ -1,0 +1,156 @@
+{
+    "type": "FeatureCollection",
+    "features":[
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3639488,
+                "desc":"BD NEWTON - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.5817927511651937,
+                    48.8426628769459
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3681581,
+                "desc":"BOULEVARD ARCHIMEDE - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES"
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.581741885871909,
+                    48.843426925290714
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3681660,
+                "desc":"BD NEWTON - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES"
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.58195619006769,
+                    48.84267152877456
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3639714,
+                "desc":"BOULEVARD ARCHIMEDE - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES"
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.5817287775406523,
+                    48.84353480306854
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3681582,
+                "desc":"BOULEVARD ARCHIMEDE - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.5815375525817212,
+                    48.84340936949441
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3639423,
+                "desc":"BOULEVARD ARCHIMEDE - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES"
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.582000728025099,
+                    48.8434533562888
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3639489,
+                "desc":"BOULEVARD ARCHIMEDE - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.5821505528671724,
+                    48.8434620358307
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3681686,
+                "desc":"BOULEVARD ARCHIMEDE - 77083",
+                "name":"NOISY-CHAMPS RER - DESCARTES."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.5813604525647795,
+                    48.84339175752424
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3681585,
+                "desc":"21 AV AMPERE - 77083",
+                "name":"C.R.O.U.S."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.5839285562282472,
+                    48.842245043016746
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties":{
+                "id":3681632,
+                "desc":"FACE 23-25 AV AMPERE - 77083",
+                "name":"C.R.O.U.S."
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[
+                    2.583711336428734,
+                    48.84238030651938
+                ]
+            }
+        }
+    ]
+}
+

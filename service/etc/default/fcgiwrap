@@ -1,0 +1,8 @@
+#FCGI_SOCKET=/var/run/fcgiwrap.sock
+#FCGI_PROGRAM=/usr/sbin/fcgiwrap
+#FCGI_USER=nginx
+#FCGI_GROUP=www
+#FCGI_EXTRA_OPTIONS="-M 0700"
+#ALLOWED_ENV="PATH"
+FCGI_CHILDREN=4
+

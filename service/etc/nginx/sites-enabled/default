@@ -1,0 +1,34 @@
+upstream mapservice {
+    server 10.1.61.82:9000  max_fails=2 fail_timeout=3s;
+}
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    root /geodata;
+
+    index index.html
+
+    # Make site accessible from http://localhost/
+    server_name localhost 10.1.61.83;
+
+    error_page 404              /404.html;
+    error_page 500 502 503 504  /50x.html;
+
+    location = ^/mapws/([^/]+)/(.*\.html)$ {
+        alias /geodata/$1/$2;
+        index index.html;
+        autoindex on;
+    }
+
+    location ~ ^/mapws/([^/]+)/(.*)?$ {
+        gzip                             off;
+        fastcgi_pass                     mapservice;
+        include                          fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME    /usr/bin/mapserv;
+        fastcgi_param SCRIPT_NAME        /usr/bin/mapserv; 
+        fastcgi_param MS_MAPFILE         /geodata/$1/$1.map;
+    }
+}
+
