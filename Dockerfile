@@ -1,7 +1,7 @@
 ## MapServer web mapping
-FROM dgricci/gdal:1.0.0
+FROM dgricci/gdal:2.3.1
 MAINTAINER Didier Richard <didier.richard@ign.fr>
-LABEL       version="1.0.0" \
+LABEL       version="1.1.0" \
             mapserver="v7.2.0" \
             os="Debian Stretch" \
             description="MarServer service"

@@ -1,11 +1,12 @@
 % MapServer web mapping  
 % Didier Richard  
-% 2018/09/04
+% 2018/09/16
 
 ---
 
 revision:
-    - 1.0.0 : 2018/09/04  
+    - 1.0.0 : 2018/09/04 : proj 5.1.0, gdal 2.3.1, mapserver 7.2.0  
+    - 1.1.0 : 2018/09/16 : proj 5.2.0, gdal 2.3.1, mapserver 7.2.0  
 
 ---
 
