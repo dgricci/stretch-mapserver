@@ -1,13 +1,13 @@
 ## MapServer web mapping
 FROM dgricci/gdal:2.3.2
 MAINTAINER Didier Richard <didier.richard@ign.fr>
-LABEL       version="1.2.0" \
-            mapserver="v7.2.0" \
+LABEL       version="1.2.1" \
+            mapserver="v7.2.1" \
             os="Debian Stretch" \
             description="MarServer service"
 
 ARG MAPSERVER_VERSION
-ENV MAPSERVER_VERSION ${MAPSERVER_VERSION:-7.2.0}
+ENV MAPSERVER_VERSION ${MAPSERVER_VERSION:-7.2.1}
 ARG MAPSERVER_DOWNLOAD_URL
 ENV MAPSERVER_DOWNLOAD_URL ${MAPSERVER_DOWNLOAD_URL:-http://download.osgeo.org/mapserver/mapserver-$MAPSERVER_VERSION.tar.gz}
 
