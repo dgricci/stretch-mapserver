@@ -34,7 +34,7 @@ $ docker tag dgricci/mapserver:$(< VERSION) dgricci/mapserver:latest
 
 ```bash
 $ docker build \
-    --build-arg MAPSERVER_VERSION=7.2.1 --build-arg MAPSERVER_DOWNLOAD_URL=http://download.osgeo.org/mapserver/mapserver-7.2.1.zip \
+    --build-arg MAPSERVER_VERSION=7.2.1 --build-arg MAPSERVER_DOWNLOAD_URL=http://download.osgeo.org/mapserver/mapserver-7.2.1.tar.gz \
     -t dgricci/mapserver:$(< VERSION) .
 $ docker tag dgricci/mapserver:$(< VERSION) dgricci/mapserver:latest
 ```
