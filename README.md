@@ -1,6 +1,6 @@
 % MapServer web mapping  
 % Didier Richard  
-% 2018/12/15
+% 2018/12/30
 
 ---
 
@@ -10,6 +10,7 @@ revision:
     - 1.2.0 : 2018/09/28 : proj 5.2.0, gdal 2.3.2, mapserver 7.2.0  
     - 1.2.1 : 2018/10/02 : proj 5.2.0, gdal 2.3.2, mapserver 7.2.1  
     - 1.2.2 : 2018/12/15 : proj 5.2.0, gdal 2.3.2, mapserver 7.2.1  
+    - 1.3.0 : 2018/12/30 : proj 5.2.0, gdal 2.4.0, mapserver 7.2.1  
 
 ---
 
@@ -18,6 +19,12 @@ revision:
 ```bash
 $ docker build -t dgricci/mapserver:$(< VERSION) .
 $ docker tag dgricci/mapserver:$(< VERSION) dgricci/mapserver:latest
+```
+
+To get a full output during building, use :
+
+```bash
+$ docker build -t dgricci/mapserver:$(< VERSION) . 2>&1 | tee build-mapserver.log
 ```
 
 ## Behind a proxy (e.g. 10.0.4.2:3128) ##

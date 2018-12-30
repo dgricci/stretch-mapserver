@@ -3,7 +3,7 @@
 version: '3'
 services:
     mapws:
-        image: dgricci/mapserver:7.2.0
+        image: dgricci/mapserver:7.2.1
         working_dir: /geodata
         command: bash -c "/usr/bin/spawn-fcgi -a '10.1.61.82' -p '9000' -F '1' -u 'www-data' -U 'www-data' -g 'www-data' -G 'www-data' -n -- /usr/sbin/fcgiwrap -f"
         volumes:

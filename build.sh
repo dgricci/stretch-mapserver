@@ -8,10 +8,11 @@ set -E
 
 echo "Compiling Mapserver ${MAPSERVER_VERSION}..."
 
-# get php5 as php7 is not yet supported by nor gdal, neither mapserver :
-wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/php56.list
-# thanks to @debsuryorg
+# gdal 2.4.0 does not support anymore PHP
+## get php5 as php7 is not yet supported by nor gdal, neither mapserver :
+#wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+#echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/php56.list
+## thanks to @debsuryorg
 
 01-install.sh
 
@@ -21,7 +22,6 @@ apt-get -qy --no-install-recommends install \
     libgeos-dev \
     libjpeg62-turbo-dev \
     libpq-dev \
-    php5.6-dev \
     python-dev \
     libgif-dev \
     libfreetype6-dev \
@@ -37,7 +37,6 @@ apt-get -qy --no-install-recommends install \
     default-libmysqlclient-dev \
     fcgiwrap \
     protobuf-c-compiler \
-    openjdk-8-jdk \
     swig
 
 # Cf. https://github.com/mapserver/mapserver/blob/branch-7-2/CMakeLists.txt
@@ -55,7 +54,6 @@ rm -f mapserver-$MAPSERVER_VERSION.tar.gz*
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_PREFIX_PATH=/usr \
         -DCMAKE_BUILD_TYPE=Release \
-        -DJAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
         -DWITH_PROJ=ON \
         -DWITH_PROTOBUFC=ON \
         -DWITH_KML=ON \
@@ -82,10 +80,10 @@ rm -f mapserver-$MAPSERVER_VERSION.tar.gz*
         -DWITH_THREAD_SAFETY=ON \
         -DWITH_GIF=ON \
         -DWITH_PYTHON=ON \
-        -DWITH_PHP=ON \
+        -DWITH_PHP=OFF \
         -DWITH_PERL=OFF \
         -DWITH_RUBY=OFF \
-        -DWITH_JAVA=ON \
+        -DWITH_JAVA=OFF \
         -DWITH_CSHARP=OFF \
         -DWITH_POINT_Z_M=OFF \
         -DWITH_ORACLESPATIAL=OFF \
@@ -142,7 +140,6 @@ apt-get purge -y \
     x11proto-render-dev \
     x11proto-xext-dev \
     xtrans-dev \
-    php5.6-dev \
     python-dev \
     python2.7-dev \
     protobuf-c-compiler \
